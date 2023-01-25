@@ -6,11 +6,11 @@ mp_drawing = mp.solutions.drawing_utils
 mp_drawing_styles = mp.solutions.drawing_styles
 mp_hands = mp.solutions.hands
 
-DATADIR = r'D:\TMS\dataset\egogesture\frames1\Subject01\Scene1\Color\rgb1'
+DATADIR = r'D:\TMS\dataset\jester\20bn-jester-v1\43955'
 
 # For static images:
 with mp_hands.Hands(static_image_mode=True, max_num_hands=2, min_detection_confidence=0.5) as hands:
-  path = os.path.join(DATADIR, '000385.jpg')  # create path (...\Color\rgb1)
+  path = os.path.join(DATADIR, '00015.jpg')  # create path (...\Color\rgb1)
   # Read an image, flip it around y-axis for correct handedness output (see
   # above).
   image = cv2.imread(path)
