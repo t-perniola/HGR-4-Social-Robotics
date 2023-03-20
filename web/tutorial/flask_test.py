@@ -15,10 +15,12 @@ def login():
       session.permanent = True
       user = request.form["nm"] # usiamo dizionario e chiave per accedere al valore corrispondente
       session["user"] = user # salviamo il nome utente mantenendo la sessione aperta
+      flash("Login successful!")
       return redirect(url_for("user")) # manderemo il nome inserito e reindirizzeremo alla funzione sotto
     
     else:
         if "user" in session: # se sono già registrato, non devo riandare al login
+            flash("Already logged in")
             return redirect(url_for("user"))
       
         return render_template("login.html")
@@ -27,7 +29,7 @@ def login():
 def user():
     if "user" in session:
         user = session["user"]
-        return f"<h1>{user}</h1>"
+        return render_template("user.html", user = user)
     else:
         return redirect(url_for("login"))
     

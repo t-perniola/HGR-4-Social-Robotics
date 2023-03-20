@@ -7,9 +7,9 @@
         {% if messages %}
             {% for msg in messages %}
                 <p>{{msg}}</p>
-            {& endfor &}
-        {& endif &}
-    {& endwith &}
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
 <form action="#", method="post">
     <p>Name:</p>
 	<p><input type="text" name="nm" /></p>
