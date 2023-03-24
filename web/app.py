@@ -39,7 +39,7 @@ def video_feed():
 def video_feed_pepper():
     open = True
     if open == True:
-        return Response(utils.get_prediction(), mimetype='multipart/x-mixed-replace; boundary=frame')    
+        return Response(utils.get_both_prediction(), mimetype='multipart/x-mixed-replace; boundary=frame')    
 
 
 if __name__ == "__main__":
