@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<package version="0.0.0" installOnlyAtStartup="false" uuid="pepper_hgr-650b9f">
+ <names>
+  <name lang="en_US">pepper_hgr</name>
+  <name lang="it_IT">pepper_hgr</name>
+ </names>
+ <supportedLanguages>
+  <language>en_US</language>
+  <language>it_IT</language>
+ </supportedLanguages>
+ <descriptionLanguages>
+  <language>en_US</language>
+  <language>it_IT</language>
+ </descriptionLanguages>
+ <contents>
+  <behaviorContent path="applaud">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="kiss">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="heart">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="preghiera">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="dialog_test">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="voice_recog_test">
+   <nature>interactive</nature>
+   <triggerSentences>
+    <sentence lang="it_IT">ciao</sentence>
+   </triggerSentences>
+   <loadingResponses>
+    <sentence lang="it_IT">ciao a te</sentence>
+   </loadingResponses>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="dialogo">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <behaviorContent path="hello">
+   <nature>interactive</nature>
+   <permissions/>
+  </behaviorContent>
+  <dialogContent typeVersion="1.0" topicName="presentazione"/>
+ </contents>
+</package>
