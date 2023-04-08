@@ -1,23 +1,23 @@
-# import dependancies
+# coding=utf-8
 import utilities as utils
 from flask import Flask, render_template, Response
-#from pepper_app import pepper_app
 from flask_ngrok import run_with_ngrok
-
 
 # Declarations
 app = Flask(__name__)
-#app.register_blueprint(pepper_app, url_prefix = "/pepper")
 
 # bool
 open = False
 
 # Use NGROK
-#run_with_ngrok(app)
-
+run_with_ngrok(app)
 
 # Define ROUTES
 @app.route("/")
+def pepper():    
+    return render_template("pepper.html")
+
+@app.route("/home")
 def home():    
     return render_template("home.html")
 
@@ -25,9 +25,9 @@ def home():
 def webcam():
     return render_template("webcam.html")
 
-@app.route('/pepper/')
-def pepper():
-    return render_template("peppercam.html")
+@app.route('/webcam_both')
+def webcam_both():
+    return render_template("webcam_both.html")
 
 @app.route('/video_feed')
 def video_feed():
@@ -35,11 +35,16 @@ def video_feed():
     if open == True:
         return Response(utils.get_prediction_hagrid(), mimetype='multipart/x-mixed-replace; boundary=frame')
     
-@app.route('/video_feed_pepper')
-def video_feed_pepper():
+@app.route('/video_feed_both')
+def video_feed_both():
     open = True
     if open == True:
-        return Response(utils.get_both_prediction(), mimetype='multipart/x-mixed-replace; boundary=frame')    
+        return Response(utils.get_both_prediction(), mimetype='multipart/x-mixed-replace; boundary=frame')  
+
+@app.route('/prediction/')
+def prediction():
+    pred = utils.get_prediction_string()
+    #return render_template("peppercam.html", pred = pred)
 
 
 if __name__ == "__main__":
