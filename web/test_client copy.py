@@ -4,15 +4,14 @@ import socket
 import pickle
 import struct 
 from naoqi import ALProxy
-from PIL import Image
 
 ROBO_IP = "127.0.0.1"
 PORT = 9559
 
-cap = cv2.VideoCapture(0)
 clientsocket = socket.socket(socket.AF_INET,socket.SOCK_STREAM)
 clientsocket.connect(('localhost', 8089))
 
+cap = cv2.VideoCapture(0)
 cameraProxy = ALProxy("ALVideoDevice", ROBO_IP, PORT)
 subscriber = cameraProxy.subscribeCamera("demo", 0, 2, 13, 5) # params: mod_name, cam_idx, resolution_idx (2: 640x480), colors_idx, fps
     
