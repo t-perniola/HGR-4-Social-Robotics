@@ -36,19 +36,29 @@ while True:
         move.runBehavior(behavior)    
 
         # ritorno a posiz originale
-        posture.goToPosture("Stand", 0.7)
-
-        # avvio fotocamera pc, simulando quella di pepper
-    elif gesture == "recog":
-        while cap.isOpened():
-            ret, frame = cap.read()
-            cv2.imshow("frame", frame)
-            data = pickle.dumps(frame) 
-            clientsocket.sendall(struct.pack("L", len(data))+data)
-
-            # Break gracefully
-            if cv2.waitKey(10) & 0xFF == ord('q'): #se premiamo q -> quit
-                break
+        posture.goToPosture("Stand", 0.7)   
         
+        # il cleint riceve questa var inutile quanod finita l'esecuzione di Pepper
+        foo = str(clientsocket.recv(1024).decode())
+        print("foo:", foo)
+
+        # se ricevuto comando "recog", quindi premuto bottone, parte riconoscimento
+        cmd = str(clientsocket.recv(1024).decode())
+        print("cmd:", cmd)
+
+        if cmd == "recog":
+            while cap.isOpened():
+                ret, frame = cap.read()
+                cv2.imshow("frame", frame)
+                data = pickle.dumps(frame) 
+                clientsocket.sendall(struct.pack("L", len(data))+data)
+
+                # Break gracefully
+                if cv2.waitKey(10) & 0xFF == ord('q'): #se premiamo q -> quit
+                    break
+
+            cap.release()
+            cv2.destroyAllWindows()
+
 
 #clientsocket.close()

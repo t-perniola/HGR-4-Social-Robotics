@@ -41,10 +41,13 @@ def pepper():
 @test.route("/<name>") # tramite richiesta GET, ottenuta dal bottone premuto ...
 def gesture(name):  # ... ottengo il gesto corrispondente scelto
     conn.send(name.encode())
-    if name == "recog":
-        get_video_stream()
-        return render_template("web_control.html", gesture = name)
-    else:  return render_template("web_control.html", gesture = name)
+    return render_template("web_control.html", gesture = name)
+
+@test.route("/<name>/recog") 
+def gesture_recog(name): 
+    f"{name}: starting recognition"
+    conn.send("recog".encode())
+    return get_video_stream()
 
 def get_video_stream():    
     data = b'' 

@@ -2,11 +2,12 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Pepper control</title>
+	<title>Pepper Web Control</title>
 	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 	<h1>{{gesture}}</h1><br>
 	<a href='/'><button>torna indietro</button></a><br>		
+	<a href="{{ url_for('gesture_recog', name = gesture) }}"><button>recog</button></a>
 </body>
 </html>
