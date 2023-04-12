@@ -1,14 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<title>Pepper Web Control</title>
-	<link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
-	<h1>scegli il gesto</h1>
+{% extends "base.html" %}
+
+{% block title %}Pepper Web Control{% endblock %}
+
+{% block content %}
+<div>
+	<h1>Scegli un gesto</h1><br>
 	<a href='preghiera'><button>preghiera</button></a>
     <a href='applauso'><button>applauso</button></a>
-    <a href='saluto'><button>saluto</button></a><br>
-</body>
-</html>
+    <a href='saluto'><button>saluto</button></a>
+	<a href='baci'><button>baci</button></a><br>
+</div>
+{% endblock %}
+
+
+
+

@@ -44,28 +44,47 @@ def gesture(name):  # ... ottengo il gesto corrispondente scelto
     return render_template("web_control.html", gesture = name)
 
 @test.route("/<name>/recog") 
-def gesture_recog(name): 
-    f"{name}: starting recognition"
-    conn.send("recog".encode())
-    return get_video_stream()
+def gesture_recog(name):     
+    conn.send("recog".encode())    
+    return render_template("gesture_recognition.html", gesture = name)
 
-def get_video_stream():    
+@test.route("/<name>/recog/check") 
+def check_execution(name):   
+    print("starting modello...")  
+    pred = get_video_stream()
+    print("prediction", pred)
+    
+    if pred == name:
+        print("corretto")
+        conn.send("corretto".encode()) 
+        return render_template("correct_exec.html", result = "corretto")
+    else:
+        print("sbagliato")
+        conn.send("sbagliato".encode()) 
+        return render_template("wrong_exec.html", gesture = name, result = "sbagliato")
+
+def get_video_stream():   
     data = b'' 
     payload_size = struct.calcsize("L") 
 
     sequence = []
     predictions = []
     gesto = ""
+    predicted = False
+    
+    while predicted is False:       
 
-    while True:          
+        print("dentro while")   
 
         # Retrieve message size
         while len(data) < payload_size:
             data += conn.recv(4096)
-
+            
         packed_msg_size = data[:payload_size]
         data = data[payload_size:]
         msg_size = struct.unpack("L", packed_msg_size)[0] 
+
+        #print("msg size:", msg_size)
 
         # Retrieve all data based on message size
         while len(data) < msg_size:
@@ -75,7 +94,7 @@ def get_video_stream():
         data = data[msg_size:]
 
         # Extract frame
-        frame = pickle.loads(frame_data, encoding = 'latin1')
+        frame = pickle.loads(frame_data, encoding = 'latin1')        
 
         with ut.mp_hands.Hands(max_num_hands=2, min_detection_confidence=0.5) as hands:
 
@@ -112,8 +131,7 @@ def get_video_stream():
             sequence.append(keypoints)
             sequence = sequence[-30:]
 
-            #print(len(sequence))
-            #print(len(predictions))
+            print(len(sequence))
             
             if len(sequence) == 30:            
 
@@ -128,6 +146,13 @@ def get_video_stream():
                 
                 # Viz probabilities
                 image = ut.prob_viz(res, ut.labels, image, ut.colors) 
+
+                predicted = True
+                print(gesto)
+            
+    #print("uscito")
+    return gesto
+    
 
 
 if __name__ == "__main__":

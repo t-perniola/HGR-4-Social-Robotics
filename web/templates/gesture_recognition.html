@@ -5,8 +5,8 @@
 {% block content %}
 <div>
 	<h1>gesto scelto: {{gesture}}</h1><br>
-	<p>Osserva Pepper eseguirlo!</p>
-	<a href="{{ url_for('gesture_recog', name = gesture) }}"><button>Provo io!</button></a><br>
+	<p>Fotocamera avviata: clicca "start" per avviare riconoscimento</p>	
+	<a href="{{ url_for('check_execution', name = gesture) }}">start</a><br>
 	<a href='/'><button>torna indietro</button></a><br>			
 </div>
 {% endblock %}

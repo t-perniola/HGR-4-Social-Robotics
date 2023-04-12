@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<package uuid="pepper_choregraphe-27c329" version="0.0.0">
+<package version="0.0.0" uuid="pepper_choregraphe-27c329">
  <names>
   <name lang="en_US">pepperGesture</name>
  </names>
