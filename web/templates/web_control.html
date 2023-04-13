@@ -4,9 +4,24 @@
 
 {% block content %}
 <div>
+	<style>
+		.exp{visibility: hidden;}
+	</style>
 	<h1>gesto scelto: {{gesture}}</h1><br>
 	<p>Osserva Pepper eseguirlo!</p>
-	<a href="{{ url_for('gesture_recog', name = gesture) }}"><button>Provo io!</button></a><br>
+	<a href="{{ url_for('check_execution', name = gesture) }}"><button onclick="unhide()">Provo io!</button></a><br>
+	<div class="exp">
+		<p class="and">Riconoscimento avviato...</p>
+	</div>
+	<script>
+		function unhide() {
+			var hid = document.getElementsByClassName("exp");
+			// Emulates jQuery $(element).is(':hidden');
+			if(hid[0].offsetWidth > 0 && hid[0].offsetHeight > 0) {
+				hid[0].style.visibility = "visible";
+			}
+		}
+	</script>
 	<a href='/'><button>torna indietro</button></a><br>			
 </div>
 {% endblock %}

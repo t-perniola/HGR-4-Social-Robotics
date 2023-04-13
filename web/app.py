@@ -10,14 +10,14 @@ app = Flask(__name__)
 open = False
 
 # Use NGROK
-run_with_ngrok(app)
+#run_with_ngrok(app)
 
 # Define ROUTES
-@app.route("/")
+@app.route("/pepper")
 def pepper():    
     return render_template("pepper.html")
 
-@app.route("/home")
+@app.route("/")
 def home():    
     return render_template("home.html")
 
@@ -40,12 +40,6 @@ def video_feed_both():
     open = True
     if open == True:
         return Response(utils.get_both_prediction(), mimetype='multipart/x-mixed-replace; boundary=frame')  
-
-@app.route('/prediction/')
-def prediction():
-    pred = utils.get_prediction_string()
-    #return render_template("peppercam.html", pred = pred)
-
 
 if __name__ == "__main__":
     app.run()
