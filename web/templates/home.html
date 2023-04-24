@@ -3,15 +3,58 @@
 {% block title %}HGR{% endblock %}
 
 {% block content %}
-<div style="margin-left:10px;">
-    <h1>Riconoscimento di gesti sociali per la Robotica Sociale </h1>
-    <p>Con il nostro sistema è possibile giocare con il robot Pepper che ci insegnerà alcuni <b>gesti</b> effettuati in ambito sociale e nella comunicazione quotidiana. <br>
-        <b>Pepper</b> sarà quindi in grado di mostrarci il gesto scelto e toccherà a noi replicarlo! <br>
-        Inoltre è possibile utilizzare un secondo modello addestrato su un dataset, HaGRID, che permette di riconoscere una selezione più ampia di gesti.<br>
-        Per accedere al servizio cliccare sul bottone sottostante o selezionare <i>Webcam</i> dal menu in alto.</p>        
-        <a href='pepper'><button>Gioca con Pepper</button></a>
-        <a href='webcam'><button>Testa il modello ML</button></a>
-        <a href='webcam_both'><button>Testa entrambi i modelli</button></a> <br><br>
-        <img src="../static/images/computer-vision-implement.jpg" style="width:609;height:414px;"/>
+<div style="margin-left:10px; text-align:center;">
+    <h1>Riconoscimento di gesti per la Robotica Sociale </h1><br>
+    <p>Per giocare con il robot Pepper, che ci insegnerà alcuni <b>gesti</b> effettuati in ambito sociale e nella comunicazione quotidiana, cliccare sul pulsante <b> <i>Impara con Pepper</i> </b> <br>
+        <b>Pepper</b> sarà quindi in grado di mostrarci il gesto scelto e toccherà a noi replicarlo! <br> <br>
+        Inoltre, è presente la modalità <b> <i>Indovina con Pepper</i> </b>, in cui il nostro robot indovinerà il gesto che stiamo effettuando, e lo eseguirà copaindoci! <br> <br>
+        Infine, è possibile semplicemente provare il sistema attraverso la fotocamera del PC, cliccando sul bottone <i>Testa il sistema</i> dal menu in alto.</p> <br>
+        <div>
+            <div class= "left", style="margin-left: 350px;">
+                <a href='pepper_learn'><img src="../static/images/teachbot.png" alt="learn" style="width:186px;height:186px;"><br><button class="buttonB button4">Impara con Pepper</button></a> 
+            </div>
+            <div class = "right", style="margin-right: 350px;">
+                <br><a href='pepper_guess'><img src="../static/images/guessbot.png" alt="guess" style="width:248px;height:166px;"><br><button class="buttonA button4">Indovina con Pepper</button></a>
+            </div>
+        </div>     
 </div>
+<br><br><br><br><br><br><br><br><br><br><br>
+<div>
+    <div class="left" , style="margin-left: 50px;"><img src="https://www.robotlab.com/hubfs/image-107.png" alt="pepper1", style="width:215px;height:268px;"></div>
+    <div class="right", style="margin-right: 50px;"><img src="https://www.robotlab.com/hubfs/image-109.png" alt="pepper2", style="width:240px;height:272px;"></div>
+</div>
+
+<style>
+    .left{
+    float:left;
+    }
+    .right{
+        float:right;
+    }
+    .buttonA {
+        background-color: #5307e0;
+        border: none;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .buttonB {
+        background-color: #ffa600f8;
+        border: none;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .button4 {border-radius: 12px;}
+</style>
 {% endblock %}

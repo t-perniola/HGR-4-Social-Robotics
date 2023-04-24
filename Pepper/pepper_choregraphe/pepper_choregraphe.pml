@@ -8,9 +8,7 @@
         <BehaviorDescription name="behavior" src="baci" xar="behavior.xar" />
     </BehaviorDescriptions>
     <Dialogs />
-    <Resources>
-        <File name=".behavior.xar.3444" src="preghiera/.behavior.xar.3444.csp" />
-    </Resources>
+    <Resources />
     <Topics />
     <IgnoredPaths />
     <Translations auto-fill="en_US">

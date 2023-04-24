@@ -12,6 +12,9 @@
  <contents>
   <behaviorContent path="preghiera">
    <nature>interactive</nature>
+   <triggerSentences/>
+   <loadingResponses/>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
   <behaviorContent path="applauso">
@@ -20,6 +23,9 @@
   </behaviorContent>
   <behaviorContent path="saluto">
    <nature>interactive</nature>
+   <triggerSentences/>
+   <loadingResponses/>
+   <autonomous/>
    <permissions/>
   </behaviorContent>
   <behaviorContent path="baci">

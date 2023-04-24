@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+
+{% block title %}Pepper Learn{% endblock %}
+
+{% block content %}
+<div style="text-align:center;">
+	<h1>Scegli un gesto</h1><br>
+	<p>Scegli un gesto da far eseguire a Pepper: lui si impegnerà per eseguirlo al meglio!</p>
+	<a href='preghiera'><img src="../static/images/pray.png" alt="preghiera" style="width:140px;height:140px;"> <button class="buttonA button4">preghiera</button> </a><br><br><br>
+    <a href='applauso'><img src="../static/images/applause.png" alt="applauso" style="width:140px;height:140px;"><button class="buttonC button4">applauso</button></a><br><br><br>
+    <a href='saluto'><img src="../static/images/saluto.png" alt="preghiera" style="width:140px;height:140px;"><button class="buttonB button4">saluto</button></a><br><br><br>
+	<a href='baci'><img src="../static/images/kisses.jpg" alt="preghiera" style="width:170px;height:140px;"><button class="buttonD button4">baci</button></a><br>
+</div>
+
+<style>
+	.buttonA {
+		background-color: #2765ea;
+		border: none;
+		color: white;
+		padding: 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+	}
+	.buttonB {
+		background-color: #59229cf8;
+		border: none;
+		color: white;
+		padding: 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+	}
+	.buttonC {
+		background-color: #ffa600f8;
+		border: none;
+		color: white;
+		padding: 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+	}
+	.buttonD {
+		background-color: #e12c14f8;
+		border: none;
+		color: white;
+		padding: 20px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 2px;
+		cursor: pointer;
+	}
+	
+	.button4 {border-radius: 12px;}
+</style>
+
+{% endblock %}
+
+
+
+

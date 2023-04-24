@@ -9,7 +9,7 @@
 	</style>
 	<h1>gesto scelto: {{gesture}}</h1><br>
 	<p>Osserva Pepper eseguirlo!</p>
-	<a href="{{ url_for('check_execution', name = gesture) }}"><button onclick="unhide()">Provo io!</button></a><br>
+	<a href="{{ url_for('check_execution', name = gesture) }}"><button class="buttonA button4" onclick="unhide()">Provo io!</button></a><br>
 	<div class="exp">
 		<p class="and">Riconoscimento avviato...</p>
 	</div>
@@ -22,7 +22,34 @@
 			}
 		}
 	</script>
-	<a href='/'><button>torna indietro</button></a><br>			
+	<a href='/'><button class="buttonB button4">torna indietro</button></a><br>		
+	<style>
+        .buttonA {
+        background-color: #0d228a;
+        border: none;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+	.buttonB {
+        background-color: #abadb8;
+        border: none;
+        color: rgb(27, 26, 29);
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .button4 {border-radius: 12px;}
+    </style>	
 </div>
 {% endblock %}
 

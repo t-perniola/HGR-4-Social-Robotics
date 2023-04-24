@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block title %}Pepper Guess{% endblock %}
+
+{% block content %}
+<div style="text-align:center;">
+    <h1>Interagisci con Pepper!</h1> <br>
+        <h3>
+            Prova a far indovinare a Pepper il gesto che decidi di eseguire!
+        </h3> <br>
+           <a href="{{ url_for('pepper_guess_start') }}"><button class="buttonA button4">start</button></a>
+    <div>
+        <a href='/'><button>torna indietro</button></a><br>	
+    </div>
+    <style>
+        .buttonA {
+        background-color: #5307e0;
+        border: none;
+        color: white;
+        padding: 20px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer;
+    }
+    .button4 {border-radius: 12px;}
+    </style>
+</div>
+{% endblock %}
+
+
+
+
